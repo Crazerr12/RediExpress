@@ -46,4 +46,24 @@
     <string name="wallet_item">Wallet</string>
     <string name="track_item">Track</string>
     <string name="profile_item">Profile</string>
+    <string name="show_balance_icon">Show balance icon</string>
+    <string name="user_photo">User photo</string>
+    <string name="current_balance">"Current balance: "</string>
+    <string name="enable_dark_mode">Enable dark Mode</string>
+    <string name="profile_menu_icon">profile menu icon</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="name_phono_no_address">Name, phone no, address, email …</string>
+    <string name="log_out">Log Out</string>
+    <string name="go_to_this_point_of_menu">Go to this point of menu</string>
+    <string name="download_transaction">Download transaction details, orders, deliveries</string>
+    <string name="statements_and_reports"><![CDATA[Statements & Reports]]></string>
+    <string name="mute_unmute"><![CDATA[mute, unmute, set location & tracking setting]]></string>
+    <string name="notification_settings">Notification Settings</string>
+    <string name="change_cards">change cards, delete card details</string>
+    <string name="card_and_bank"><![CDATA[Card & Bank account settings]]></string>
+    <string name="referrals">Referrals</string>
+    <string name="check_no_of_friends">check no of friends and earn</string>
+    <string name="about_us">About Us</string>
+    <string name="know_more_about_us">know more about us, terms and conditions</string>
+    <string name="you_have_no_notifications">You have no notifications</string>
 </resources>

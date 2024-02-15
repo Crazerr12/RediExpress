@@ -43,7 +43,7 @@ fun NavGraphBuilder.authNavGraph(
         }
         composable(route = AuthScreen.SignIn.route) {
             SignInScreen(
-                signIn = { navController.navigate(Graph.HOME, AuthScreen.SignUp.route, true) },
+                signIn = { navController.navigate(Graph.BOTTOM, AuthScreen.SignUp.route, true) },
                 signUp = { navController.navigateUp() },
                 forgotPassword = { navController.navigate(AuthScreen.ForgotPassword.route) },
             )
@@ -73,7 +73,6 @@ fun NavGraphBuilder.authNavGraph(
 }
 
 sealed class AuthScreen(val route: String) {
-
     data object OnBoarding : AuthScreen(route = "on_boarding")
     data object SignIn : AuthScreen(route = "sign_in")
     data object SignUp : AuthScreen(route = "sign_up")

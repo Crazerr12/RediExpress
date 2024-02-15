@@ -13,7 +13,7 @@ fun RootNavGraph(
     onBoardingViewModel: OnBoardingViewModel = hiltViewModel(),
 ) {
     NavHost(
-        route = Graph.Root,
+        route = Graph.ROOT,
         navController = navController,
         startDestination = Graph.AUTHENTICATION
     ) {
@@ -41,7 +41,11 @@ fun NavHostController.navigate(
 }
 
 object Graph {
-    const val Root = "root_graph"
+    const val ROOT = "root_graph"
     const val AUTHENTICATION = "auth_graph"
+    const val BOTTOM = "bottom_graph"
+    const val PROFILE = "profile_graph"
     const val HOME = "home_graph"
+    const val TRACK = "track_graph"
+    const val WALLET = "wallet_graph"
 }
