@@ -10,7 +10,6 @@ import com.example.deliveryapp.presentation.models.OnBoardingPage
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.serialization.Serializable
 import java.util.LinkedList
 import java.util.Queue
 import javax.inject.Inject

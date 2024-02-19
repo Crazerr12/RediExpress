@@ -70,7 +70,7 @@ fun OnBoardingScreen(
             verticalAlignment = Alignment.Top,
         ) {
             PagerScreen(
-                onBoardingPage = state.currentPage,
+                onBoardingPageModel = state.currentPage,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 66.dp, start = 24.dp, end = 24.dp),
@@ -129,12 +129,12 @@ fun OnBoardingScreen(
 }
 
 @Composable
-fun PagerScreen(onBoardingPage: OnBoardingPage, modifier: Modifier = Modifier) {
+fun PagerScreen(onBoardingPageModel: OnBoardingPage, modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
     ) {
         Image(
-            painter = painterResource(id = onBoardingPage.image),
+            painter = painterResource(id = onBoardingPageModel.image),
             contentDescription = null,
             modifier = Modifier
                 .fillMaxWidth()
@@ -144,8 +144,8 @@ fun PagerScreen(onBoardingPage: OnBoardingPage, modifier: Modifier = Modifier) {
         Spacer(modifier = Modifier.height(48.dp))
 
         OnBoardDescription(
-            onBoardingPage.title,
-            onBoardingPage.description,
+            onBoardingPageModel.title,
+            onBoardingPageModel.description,
             Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 24.dp)

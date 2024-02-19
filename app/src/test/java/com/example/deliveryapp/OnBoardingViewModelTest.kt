@@ -2,7 +2,6 @@ package com.example.deliveryapp
 
 import com.example.deliveryapp.data.repositories.DataStoreRepository
 import com.example.deliveryapp.presentation.models.OnBoardingPage
-import com.example.deliveryapp.presentation.ui.onboarding.OnBoardingState
 import com.example.deliveryapp.presentation.ui.onboarding.OnBoardingViewModel
 import org.junit.Assert.*
 import org.junit.Before
@@ -11,7 +10,6 @@ import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnitRunner
-import java.util.LinkedList
 
 /**
  * Example local unit test, which will execute on the development machine (host).

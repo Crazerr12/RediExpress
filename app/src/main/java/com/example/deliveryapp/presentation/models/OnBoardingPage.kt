@@ -3,7 +3,6 @@ package com.example.deliveryapp.presentation.models
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.example.deliveryapp.R
-import kotlinx.serialization.Serializable
 
 sealed class OnBoardingPage(
     @DrawableRes

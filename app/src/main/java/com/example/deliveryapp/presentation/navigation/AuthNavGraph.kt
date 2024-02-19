@@ -76,7 +76,6 @@ sealed class AuthScreen(val route: String) {
     data object OnBoarding : AuthScreen(route = "on_boarding")
     data object SignIn : AuthScreen(route = "sign_in")
     data object SignUp : AuthScreen(route = "sign_up")
-    data object Home : AuthScreen(route = "home")
     data object ForgotPassword : AuthScreen(route = "forgot_password")
     data object NewPassword : AuthScreen(route = "new_password")
     data object OTPVerification : AuthScreen(route = "otp_verification")

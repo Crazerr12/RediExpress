@@ -19,7 +19,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -27,8 +26,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -64,8 +61,11 @@ fun ProfileScreen(
         )
 
         Row(
-            modifier = Modifier.padding(horizontal = 24.dp, vertical = 20.dp),
-            horizontalArrangement = Arrangement.SpaceBetween
+            modifier = Modifier
+                .padding(horizontal = 24.dp, vertical = 20.dp)
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             Text(text = stringResource(R.string.enable_dark_mode))
 
@@ -147,7 +147,7 @@ fun UserProfile(
 ) {
     Row(
         modifier = modifier,
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         Icon(
             painterResource(id = photo),
@@ -164,12 +164,10 @@ fun UserProfile(
             Row {
                 Text(text = stringResource(R.string.current_balance))
 
-                TextField(
-                    value = currentBalance.toString(),
-                    onValueChange = {},
-                    readOnly = true,
-                    textStyle = Typography.bodyMedium.copy(color = primaryColorLightTheme),
-                    visualTransformation = if (balanceIsShow) VisualTransformation.None else PasswordVisualTransformation()
+                Text(
+                    text = if (balanceIsShow) currentBalance.toString() else stringResource(id = R.string.password_hint),
+                    style = Typography.bodyMedium,
+                    color = primaryColorLightTheme
                 )
             }
         }

@@ -22,7 +22,7 @@ fun RootNavGraph(
             startDestination = startDestination,
             onBoardingViewModel = onBoardingViewModel
         )
-        mainNavGraph(navController)
+        bottomNavGraph(navController)
     }
 }
 
@@ -38,6 +38,13 @@ fun NavHostController.navigate(
             }
         }
     }
+}
+
+fun NavHostController.isOnBackStack(route: String): Boolean = try {
+    getBackStackEntry(route)
+    true
+} catch (e: Throwable) {
+    false
 }
 
 object Graph {

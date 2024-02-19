@@ -66,4 +66,18 @@
     <string name="about_us">About Us</string>
     <string name="know_more_about_us">know more about us, terms and conditions</string>
     <string name="you_have_no_notifications">You have no notifications</string>
+    <string name="turn_back">turn back</string>
+    <string name="origin_details">Origin Details</string>
+    <string name="destination_details">Destination Details</string>
+    <string name="package_details">Package Details</string>
+    <string name="select_delivery_type">Select delivery type</string>
+    <string name="scheduled_delivery">Scheduled delivery</string>
+    <string name="instant_delivery">Instant delivery</string>
+    <string name="address_hint">Address</string>
+    <string name="add_destination">Add destination</string>
+    <string name="country_hint">State,Country</string>
+    <string name="others_hint">Others</string>
+    <string name="package_items_hint">package items</string>
+    <string name="weight_of_item_hint">Weight of item(kg)</string>
+    <string name="worth_of_items_hint">Worth of items</string>
 </resources>
