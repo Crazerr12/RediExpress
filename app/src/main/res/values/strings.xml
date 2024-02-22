@@ -52,6 +52,8 @@
     <string name="enable_dark_mode">Enable dark Mode</string>
     <string name="profile_menu_icon">profile menu icon</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="edit_package">Edit package</string>
+    <string name="make_payment">Make payment</string>
     <string name="name_phono_no_address">Name, phone no, address, email …</string>
     <string name="log_out">Log Out</string>
     <string name="go_to_this_point_of_menu">Go to this point of menu</string>
@@ -77,7 +79,19 @@
     <string name="add_destination">Add destination</string>
     <string name="country_hint">State,Country</string>
     <string name="others_hint">Others</string>
-    <string name="package_items_hint">package items</string>
+    <string name="package_items">Package Items</string>
     <string name="weight_of_item_hint">Weight of item(kg)</string>
     <string name="worth_of_items_hint">Worth of items</string>
+    <string name="package_information">Package Information</string>
+    <string name="other_details">Other details</string>
+    <string name="tracking_number">Tracking Number</string>
+    <string name="charges">Charges</string>
+    <string name="delivery_charges">Delivery Charges</string>
+    <string name="tax_and_service_charges">Tax and Service Charges</string>
+    <string name="package_total">Package total</string>
+    <string name="top_up">Top Up</string>
+    <string name="bank">Bank</string>
+    <string name="card">Card</string>
+    <string name="transfer">Transfer</string>
+    <string name="transaction_history">Transaction History</string>
 </resources>

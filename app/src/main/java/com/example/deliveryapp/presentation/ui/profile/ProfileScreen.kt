@@ -54,7 +54,7 @@ fun ProfileScreen(
                 start = 10.dp, top = 27.dp, end = 19.dp, bottom = 19.dp
             ),
             name = state.name,
-            currentBalance = state.currentBalance,
+            currentBalance = state.currentBalance.toFloat(),
             photo = R.drawable.ic_launcher,
             showBalance = { vm.showBalance() },
             balanceIsShow = state.balanceIsShow,
@@ -139,7 +139,7 @@ fun ProfileScreen(
 @Composable
 fun UserProfile(
     name: String,
-    currentBalance: Int,
+    currentBalance: Float,
     photo: Int,
     showBalance: () -> Unit,
     balanceIsShow: Boolean,

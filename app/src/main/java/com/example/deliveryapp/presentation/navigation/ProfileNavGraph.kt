@@ -1,13 +1,20 @@
 package com.example.deliveryapp.presentation.navigation
 
+import BottomItemScreen
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import androidx.navigation.navigation
 import com.example.deliveryapp.presentation.ui.holder.HolderScreen
 import com.example.deliveryapp.presentation.ui.notifications.NotificationSettingsScreen
 import com.example.deliveryapp.presentation.ui.profile.ProfileScreen
+import com.example.deliveryapp.presentation.ui.sendpackage.SendPackageReceiptScreen
 import com.example.deliveryapp.presentation.ui.sendpackage.SendPackageScreen
+import com.example.deliveryapp.presentation.ui.sendpackage.SendPackageState
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
 fun NavGraphBuilder.profileNavGraph(navController: NavHostController) {
     navigation(
@@ -28,7 +35,10 @@ fun NavGraphBuilder.profileNavGraph(navController: NavHostController) {
             HolderScreen()
         }
         composable(route = ProfileScreen.StatementsAndReports.route) {
-            SendPackageScreen()
+            SendPackageScreen(instantDeliveryClick = { data ->
+                val json = Json.encodeToString(data)
+                navController.navigate("${ProfileScreen.SendPackageReceipt.route}/$json")
+            })
         }
         composable(route = ProfileScreen.NotificationSettings.route) {
             NotificationSettingsScreen()
@@ -45,6 +55,20 @@ fun NavGraphBuilder.profileNavGraph(navController: NavHostController) {
         composable(route = Graph.AUTHENTICATION) {
             HolderScreen()
         }
+        composable(
+            route = "${ProfileScreen.SendPackageReceipt.route}/{data}",
+            arguments = listOf(navArgument("data") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val arguments = requireNotNull(backStackEntry.arguments)
+            arguments.getString("data")?.let { detailsDataString ->
+                val detailsData = Json.decodeFromString<SendPackageState>(detailsDataString)
+                SendPackageReceiptScreen(
+                    packageData = detailsData,
+                    makePayment = { navController.navigate(ProfileScreen.Transaction.route) },
+                    editPackage = { navController.navigateUp() }
+                )
+            }
+        }
     }
 }
 
@@ -55,4 +79,6 @@ sealed class ProfileScreen(val route: String) {
     data object CardAndBankAccountSettings : ProfileScreen(route = "card_and_back_account_settings")
     data object Referrals : ProfileScreen(route = "referrals")
     data object AboutUs : ProfileScreen(route = "about_us")
+    data object SendPackageReceipt : ProfileScreen(route = "send_package_receipt")
+    data object Transaction : ProfileScreen(route = "transaction")
 }

@@ -2,6 +2,7 @@ package com.example.deliveryapp.di
 
 import com.example.deliveryapp.data.repositories.DataStoreRepository
 import com.example.deliveryapp.domain.repositories.NetworkRepository
+import com.example.deliveryapp.domain.usecases.GenerateTrackingNumberUseCase
 import com.example.deliveryapp.domain.usecases.GetUserBalanceUseCase
 import com.example.deliveryapp.domain.usecases.LogInUserUseCase
 import com.example.deliveryapp.domain.usecases.RegisterUserUseCase
@@ -58,4 +59,7 @@ object DomainModule {
     fun provideSetUserBalanceUseCase(networkRepository: NetworkRepository): SetUserBalanceUseCase {
         return SetUserBalanceUseCase(networkRepository = networkRepository)
     }
+
+    @Provides
+    fun provideGenerateTrackingNumberUseCase(): GenerateTrackingNumberUseCase = GenerateTrackingNumberUseCase()
 }

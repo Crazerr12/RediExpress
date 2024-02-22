@@ -12,26 +12,26 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.deliveryapp.R
 import com.example.deliveryapp.presentation.common.DetailsPoint
-import com.example.deliveryapp.presentation.models.DeliveryType
 import com.example.deliveryapp.presentation.theme.primaryColorLightTheme
 
 @Composable
-fun SendPackageScreen(modifier: Modifier = Modifier, vm: SendPackageViewModel = hiltViewModel()) {
+fun SendPackageScreen(
+    instantDeliveryClick: (SendPackageState) -> Unit,
+    modifier: Modifier = Modifier,
+    vm: SendPackageViewModel = hiltViewModel(),
+) {
 
     val state = vm.state
 
@@ -97,7 +97,7 @@ fun SendPackageScreen(modifier: Modifier = Modifier, vm: SendPackageViewModel = 
 
         item {
             DetailsPoint(
-                firstPoint = state.packageDetails.packageItems.joinToString(separator = ","),
+                firstPoint = state.packageDetails.packageItems,
                 firstPointChange = { vm.changePackageItems(it) },
                 secondPoint = state.packageDetails.weight.toString(),
                 secondPointChange = { vm.changePackageWeight(it) },
@@ -122,22 +122,21 @@ fun SendPackageScreen(modifier: Modifier = Modifier, vm: SendPackageViewModel = 
                         modifier = Modifier
                             .weight(1f)
                             .fillMaxHeight(),
-                        onClick = { vm.selectDeliveryType(DeliveryType.INSTANT_DELIVERY) },
+                        onClick = {
+                            vm.getTrackingNumber()
+                            instantDeliveryClick(state)
+                        },
                         image = R.drawable.clock,
                         text = R.string.instant_delivery,
-                        currentDeliveryType = state.deliveryType,
-                        deliveryTypeByDefault = DeliveryType.INSTANT_DELIVERY
                     )
 
                     Spacer(modifier = Modifier.width(24.dp))
 
                     UpperImageButton(
                         modifier = Modifier.weight(1f),
-                        onClick = { vm.selectDeliveryType(DeliveryType.SCHEDULED_DELIVERY) },
+                        onClick = { },
                         image = R.drawable.calendar,
                         text = R.string.scheduled_delivery,
-                        currentDeliveryType = state.deliveryType,
-                        deliveryTypeByDefault = DeliveryType.SCHEDULED_DELIVERY
                     )
                 }
 
@@ -152,22 +151,11 @@ fun UpperImageButton(
     onClick: () -> Unit,
     image: Int,
     text: Int,
-    currentDeliveryType: DeliveryType,
-    deliveryTypeByDefault: DeliveryType,
     modifier: Modifier = Modifier,
 ) {
-    val containerColor =
-        if (currentDeliveryType == deliveryTypeByDefault) MaterialTheme.colorScheme.primary else Color.White
-    val contentColor =
-        if (currentDeliveryType == deliveryTypeByDefault) Color.White else MaterialTheme.colorScheme.primary
-
     Button(
         modifier = modifier,
         onClick = onClick,
-        colors = ButtonDefaults.buttonColors(
-            containerColor = containerColor,
-            contentColor = contentColor
-        )
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Image(painter = painterResource(id = image), contentDescription = null)

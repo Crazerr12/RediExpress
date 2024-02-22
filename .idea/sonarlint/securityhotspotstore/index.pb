@@ -388,3 +388,17 @@ Zapp/src/main/java/com/example/deliveryapp/presentation/ui/sendpackage/SendPacka
 Mapp/src/main/java/com/example/deliveryapp/presentation/common/DetailsPoint.kt,7\a\7aa3a89a230958d0c511bf9f99c441185375f480
 y
 Iapp/src/main/java/com/example/deliveryapp/domain/models/PackageDetails.kt,0\5\05afa0ca853df938ba671125db897208b1328e44
+„
+Tapp/src/main/java/com/example/deliveryapp/presentation/common/GenerateTrackNumber.kt,9\a\9a455dc9e2fe31c5187525c2acdd31dcaaaa5ac2
+”
+dapp/src/main/java/com/example/deliveryapp/presentation/ui/sendpackage/SendPackageReceiptViewModel.kt,a\3\a300badb2c7864cef19648f09265e2235f14617a
+‘
+aapp/src/main/java/com/example/deliveryapp/presentation/ui/sendpackage/SendPackageReceiptScreen.kt,f\6\f6eb76a006e8511bc036ee8c03e7212614e3be8b
+Š
+Zapp/src/main/java/com/example/deliveryapp/domain/usecases/GenerateTrackingNumberUseCase.kt,e\f\ef00ddd7d9c4beee11f30e157203de0f39a6366e
+€
+Papp/src/main/java/com/example/deliveryapp/presentation/ui/wallet/WalletScreen.kt,c\8\c8b2bd3660fa4b638c7cde43a21d35615732e6a4
+ƒ
+Sapp/src/main/java/com/example/deliveryapp/presentation/ui/wallet/WallerViewModel.kt,7\4\74a64f13f9a6ca51cefbbe5a94327ccf8a4dff3b
+|
+Lapp/src/main/java/com/example/deliveryapp/presentation/models/Transaction.kt,a\2\a2618ad246984503ab77987ff0bfb9c75c3523f2

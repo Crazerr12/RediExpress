@@ -1,7 +1,6 @@
 package com.example.deliveryapp.presentation.ui
 
 import BottomItemScreen
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.padding
@@ -48,10 +47,12 @@ fun DeliveryApp(
     Scaffold(
         topBar = {
             if (showTopBar) {
-                CenterAlignedTopAppBar(title = { Text(text = "AppBar") },
+                CenterAlignedTopAppBar(
+                    title = { Text(text = "AppBar") },
                     navigationIcon = {
                         if (!showBottomBar) {
-                            IconButton(onClick = { navController.navigateUp() }) {
+                            IconButton(
+                                onClick = { navController.navigateUp() }) {
                                 Icon(
                                     painter = painterResource(id = R.drawable.arrow_back),
                                     contentDescription = stringResource(
@@ -62,7 +63,7 @@ fun DeliveryApp(
                             }
                         }
                     },
-                    modifier = Modifier.clickable { navController.navigateUp() })
+                )
             }
         },
         bottomBar = {

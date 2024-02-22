@@ -63,7 +63,7 @@ fun DetailsPoint(
             if (!isPackage)
                 R.string.address_hint
             else
-                R.string.package_items_hint,
+                R.string.package_items,
         )
 
         Spacer(modifier = Modifier.height(5.dp))

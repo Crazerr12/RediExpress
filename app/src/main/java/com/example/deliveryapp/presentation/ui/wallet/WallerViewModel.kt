@@ -1,27 +1,22 @@
-package com.example.deliveryapp.presentation.ui.profile
+package com.example.deliveryapp.presentation.ui.wallet
 
-import android.media.Image
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.deliveryapp.domain.usecases.GetUserBalanceUseCase
 import com.example.deliveryapp.domain.usecases.RetrieveUserUseCase
-import com.example.deliveryapp.domain.usecases.SetUserBalanceUseCase
+import com.example.deliveryapp.presentation.models.Transaction
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ProfileViewModel @Inject constructor(
-    private val setUserBalanceUseCase: SetUserBalanceUseCase,
-    private val getUserBalanceUseCase: GetUserBalanceUseCase,
-    private val retrieveUserUseCase: RetrieveUserUseCase,
-) : ViewModel() {
+class WallerViewModel @Inject constructor(
+    val retrieveUserUseCase: RetrieveUserUseCase,
 
-    var state by mutableStateOf(ProfileState())
-        private set
+    ) : ViewModel() {
 
     init {
         viewModelScope.launch {
@@ -29,15 +24,13 @@ class ProfileViewModel @Inject constructor(
         }
     }
 
+    var state by mutableStateOf(WalletState())
+        private set
+
+
     fun showBalance() {
         state = state.copy(
             balanceIsShow = !state.balanceIsShow
-        )
-    }
-
-    fun enableDarkMode() {
-        state = state.copy(
-            darkModeIsEnable = !state.darkModeIsEnable
         )
     }
 
@@ -49,10 +42,9 @@ class ProfileViewModel @Inject constructor(
     }
 }
 
-data class ProfileState(
+data class WalletState(
     val name: String = "",
-    val photo: Image? = null,
-    val currentBalance: String = "",
+    val balance: String = "",
     val balanceIsShow: Boolean = true,
-    val darkModeIsEnable: Boolean = false,
+    val history: MutableList<Transaction> = mutableStateListOf(),
 )
